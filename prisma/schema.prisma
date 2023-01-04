@@ -19,7 +19,7 @@ model User {
   sessions Session[]
 }
 
-type Session = {
+type Session {
   tokenHash String
   ip String
   userAgent String
