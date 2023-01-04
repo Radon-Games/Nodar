@@ -11,7 +11,17 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(uuid())
+  id String @id @default(uuid())
   username String @unique
-  password String
+  email String @unique
+  passwordHash String
+  createdAt DateTime @default(now())
+  sessions Session[]
+}
+
+type Session = {
+  tokenHash String
+  ip String
+  userAgent String
+  expires String
 }
